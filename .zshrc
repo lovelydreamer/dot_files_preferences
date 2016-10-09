@@ -1,11 +1,34 @@
+## PATHS
+
+# Set path to enable Android SDK
+#PATH="/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/christina/Documents/apache-maven-3.3.9/bin:$
+#export ANDROID_HOME=/Users/christina/Library/Android/sdk
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/christina/.oh-my-zsh
+
+#homebrew with npm
+export NVM_DIR="$HOME/.nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
+source /usr/local/opt/nvm/nvm.sh
+
+# more npm funtimes
+export PATH=/usr/local/share/npm/bin:$PATH
+
+
+## ALIAS
+#sublime shortcut (other one not working)
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+
+# for sublime alias
+#   alias subl="sublime"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="random"
+#ZSH_THEME="random"
+ZSH_THEME="miloshadzic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,6 +74,9 @@ ZSH_THEME="random"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages emoji history history-substring-search)
 
+# if you want to show git branch uncomment next lines
+RPROMPT='%{$fg_bold[colour255]%}%c$(git_prompt_info)'
+
 # User configuration
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -83,14 +109,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# for sublime alias
-   alias subl="sublime"
-
 # PROMPT STUFF
 # PROMPT='
 # %/ %w  $(random_emoji animals) $(random_emoji animals)
 #$(random_emoji animals)  > '
 
-# Set path to enable Android SDK
-#PATH="/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/christina/Documents/apache-maven-3.3.9/bin:$
-#export ANDROID_HOME=/Users/christina/Library/Android/sdk
+EMOJI=(💩 🐦 🚀 🐞 🎨 🍕 🐭 👽  ️ 🔬 💀 🐷 🐼 🐶 🐸 🐧 🐳 🍔 🍣 🍻 🔮 💰 💎 💾 💜 🍪 🌞 🌍 🐌 🐓 🍄 )
+
+function random_emoji {
+  echo -n "$EMOJI[$RANDOM%$#EMOJI+1]"
+}
+
+# PROMPT STUFF
+# PROMPT=' %/ %w  $(random_emoji) $(random_emoji)
+#$(random_emoji)  > '
+
+#PROMPT="$(random_emoji)  "
+#RPROMPT='%c'
+
